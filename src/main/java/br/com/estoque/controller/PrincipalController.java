@@ -83,6 +83,7 @@ public class PrincipalController {
             controller.configurar(this, itemParaEditar);
             areaConteudo.getChildren().setAll(tela);
         } catch (IOException e) {
+            e.printStackTrace();
             exibirErro("Erro interno ao abrir o formulário.", null);
         }
     }
@@ -104,6 +105,7 @@ public class PrincipalController {
 
             areaConteudo.getChildren().setAll(tela);
         } catch (IOException e) {
+            e.printStackTrace();
             exibirErro("Erro interno ao carregar a tela.", null);
         }
     }

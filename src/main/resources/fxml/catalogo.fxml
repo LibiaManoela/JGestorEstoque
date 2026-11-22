@@ -4,6 +4,7 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
 <VBox xmlns="http://javafx.com/javafx/21"
       xmlns:fx="http://javafx.com/fxml/1"
@@ -17,15 +18,26 @@
         </VBox>
 
         <HBox spacing="10">
-            <Button fx:id="botaoEditar" text="✏️ Editar Selecionado" onAction="#editarSelecionado"
-                    styleClass="botao-secundario" disable="true"/>
-            <Button fx:id="botaoExcluir" text="🗑️ Excluir" onAction="#excluirSelecionado"
-                    styleClass="botao-perigo" disable="true"/>
+            <Button fx:id="botaoEditar" text="Editar Selecionado" onAction="#editarSelecionado"
+                    styleClass="botao-secundario" disable="true">
+                <graphic>
+                    <FontIcon iconLiteral="fth-edit-2" iconSize="15" iconColor="#334155"/>
+                </graphic>
+            </Button>
+
+            <Button fx:id="botaoExcluir" text="Excluir" onAction="#excluirSelecionado"
+                    styleClass="botao-perigo" disable="true">
+                <graphic>
+                    <FontIcon iconLiteral="fth-trash-2" iconSize="15" iconColor="#FFFFFF"/>
+                </graphic>
+            </Button>
         </HBox>
     </HBox>
 
     <HBox styleClass="cartao" spacing="12" alignment="CENTER_LEFT">
-        <TextField fx:id="campoBusca" promptText="🔍 Buscar por nome ou código SKU..." HBox.hgrow="ALWAYS"/>
+        <FontIcon iconLiteral="fth-search" iconSize="17" iconColor="#64748B"/>
+        <TextField fx:id="campoBusca" promptText="Buscar por nome ou código SKU..." HBox.hgrow="ALWAYS"/>
+        <FontIcon iconLiteral="fth-filter" iconSize="16" iconColor="#64748B"/>
         <ComboBox fx:id="filtroCategoria" prefWidth="230"/>
     </HBox>
 

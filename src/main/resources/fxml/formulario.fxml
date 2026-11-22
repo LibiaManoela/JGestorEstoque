@@ -4,6 +4,7 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
 <ScrollPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
@@ -59,8 +60,17 @@
             </HBox>
 
             <HBox spacing="12" alignment="CENTER_RIGHT" style="-fx-padding: 12 0 0 0;">
-                <Button text="Cancelar" onAction="#cancelar" styleClass="botao-secundario"/>
-                <Button text="💾 Salvar Item" onAction="#salvar" styleClass="botao-primario"/>
+                <Button text="Cancelar" onAction="#cancelar" styleClass="botao-secundario">
+                    <graphic>
+                        <FontIcon iconLiteral="fth-x" iconSize="15" iconColor="#334155"/>
+                    </graphic>
+                </Button>
+
+                <Button text="Salvar Item" onAction="#salvar" styleClass="botao-primario">
+                    <graphic>
+                        <FontIcon iconLiteral="fth-check" iconSize="15" iconColor="#FFFFFF"/>
+                    </graphic>
+                </Button>
             </HBox>
         </VBox>
     </VBox>

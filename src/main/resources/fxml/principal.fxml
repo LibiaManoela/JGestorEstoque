@@ -4,6 +4,7 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
 <BorderPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
@@ -14,17 +15,40 @@
             <Label text="Gestor Estoque" styleClass="marca-titulo"/>
             <Label text="Controle de Insumos" styleClass="marca-subtitulo"/>
 
-            <Button text="📦  Catálogo Geral" onAction="#abrirCatalogo" styleClass="botao-menu"/>
-            <Button text="➕  Novo Item" onAction="#abrirNovoItem" styleClass="botao-menu"/>
-            <Button text="⚠️  Reposição Crítica" onAction="#abrirReposicao" styleClass="botao-menu"/>
+            <Button text="Catálogo Geral" onAction="#abrirCatalogo" styleClass="botao-menu">
+                <graphic>
+                    <FontIcon iconLiteral="fth-package" iconSize="16" iconColor="#ECFDF5"/>
+                </graphic>
+            </Button>
+
+            <Button text="Novo Item" onAction="#abrirNovoItem" styleClass="botao-menu">
+                <graphic>
+                    <FontIcon iconLiteral="fth-plus-circle" iconSize="16" iconColor="#ECFDF5"/>
+                </graphic>
+            </Button>
+
+            <Button text="Reposição Crítica" onAction="#abrirReposicao" styleClass="botao-menu">
+                <graphic>
+                    <FontIcon iconLiteral="fth-alert-triangle" iconSize="16" iconColor="#FDE68A"/>
+                </graphic>
+            </Button>
 
             <Region VBox.vgrow="ALWAYS"/>
 
-            <Button text="🔄  Sincronizar API" onAction="#carregarDadosIniciais" styleClass="botao-menu"/>
+            <Button text="Sincronizar API" onAction="#carregarDadosIniciais" styleClass="botao-menu">
+                <graphic>
+                    <FontIcon iconLiteral="fth-refresh-cw" iconSize="16" iconColor="#ECFDF5"/>
+                </graphic>
+            </Button>
+
             <ToggleButton fx:id="botaoSimularFalha"
                           text="Simular Falha de Rede"
                           onAction="#alternarSimulacaoFalha"
-                          styleClass="botao-simulacao"/>
+                          styleClass="botao-simulacao">
+                <graphic>
+                    <FontIcon iconLiteral="fth-wifi-off" iconSize="15" iconColor="#D1FAE5"/>
+                </graphic>
+            </ToggleButton>
         </VBox>
     </left>
 
@@ -40,7 +64,11 @@
                 <Button fx:id="botaoTentarNovamente"
                         text="Tentar Novamente"
                         onAction="#executarTentativaNovamente"
-                        styleClass="botao-secundario"/>
+                        styleClass="botao-secundario">
+                    <graphic>
+                        <FontIcon iconLiteral="fth-rotate-cw" iconSize="14" iconColor="#334155"/>
+                    </graphic>
+                </Button>
             </HBox>
         </HBox>
     </top>

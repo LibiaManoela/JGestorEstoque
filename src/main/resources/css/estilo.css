@@ -221,3 +221,8 @@
 .table-row-cell:selected .text {
     -fx-fill: #064E3B;
 }
+
+/* Espaçamento entre ícones Ikonli e textos */
+.button, .toggle-button {
+    -fx-graphic-text-gap: 10;
+}

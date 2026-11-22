@@ -4,6 +4,7 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
 <VBox xmlns="http://javafx.com/javafx/21"
       xmlns:fx="http://javafx.com/fxml/1"
@@ -19,9 +20,13 @@
     <HBox styleClass="cartao" spacing="14" alignment="CENTER_LEFT">
         <Label text="Quantidade a adicionar ao item selecionado:" styleClass="rotulo-campo"/>
         <Spinner fx:id="spinnerQuantidadeRepor" prefWidth="110" editable="true"/>
-        <Button fx:id="botaoRepor" text="📥 Registrar Entrada (PUT)"
+        <Button fx:id="botaoRepor" text="Registrar Entrada"
                 onAction="#registrarReposicao"
-                styleClass="botao-primario" disable="true"/>
+                styleClass="botao-primario" disable="true">
+            <graphic>
+                <FontIcon iconLiteral="fth-arrow-down-circle" iconSize="16" iconColor="#FFFFFF"/>
+            </graphic>
+        </Button>
     </HBox>
 
     <TableView fx:id="tabelaCriticos" VBox.vgrow="ALWAYS">

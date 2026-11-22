@@ -1,1 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <!-- Interface da Tela 3 (Painel de reposição crítica). -->
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="br.com.estoque.controller.ReposicaoController"
+      styleClass="painel-tela" spacing="18">
+
+    <VBox spacing="4">
+        <Label text="Painel de Reposição Crítica" styleClass="titulo-pagina"/>
+        <Label text="Itens com quantidade atual igual ou inferior ao estoque mínimo definido."
+               styleClass="subtitulo-pagina"/>
+    </VBox>
+
+    <HBox styleClass="cartao" spacing="14" alignment="CENTER_LEFT">
+        <Label text="Quantidade a adicionar ao item selecionado:" styleClass="rotulo-campo"/>
+        <Spinner fx:id="spinnerQuantidadeRepor" prefWidth="110" editable="true"/>
+        <Button fx:id="botaoRepor" text="📥 Registrar Entrada (PUT)"
+                onAction="#registrarReposicao"
+                styleClass="botao-primario" disable="true"/>
+    </HBox>
+
+    <TableView fx:id="tabelaCriticos" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colSku" text="SKU" prefWidth="140"/>
+            <TableColumn fx:id="colNome" text="Material em Alerta" prefWidth="340"/>
+            <TableColumn fx:id="colQuantidade" text="Qtd. Atual" prefWidth="140"/>
+            <TableColumn fx:id="colMinimo" text="Est. Mínimo Exigido" prefWidth="160"/>
+        </columns>
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+        </columnResizePolicy>
+    </TableView>
+
+</VBox>

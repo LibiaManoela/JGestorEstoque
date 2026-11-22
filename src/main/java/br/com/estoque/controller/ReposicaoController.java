@@ -8,7 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 //Tela 3: Exibe itens com estoque abaixo do mínimo e permite ajuste rápido de quantidade (PUT).
-public class ReposicaoController {
+public class ReposicaoController implements PrincipalController.ControladorFilho {
 
     @FXML private TableView<ItemEstoque> tabelaCriticos;
     @FXML private TableColumn<ItemEstoque, String> colSku;

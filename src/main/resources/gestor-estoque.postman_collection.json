@@ -1,0 +1,160 @@
+{
+  "info": {
+    "name": "Gestor Estoque - API DummyJSON",
+    "description": "Coleção de testes dos endpoints utilizados pelo Gestor Estoque (GET, POST, PUT, DELETE e simulação de falha).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://dummyjson.com/products",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Listar Itens do Estoque (GET)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}?limit=20",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "20"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2. Cadastrar Novo Item (POST)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Fio de Algodão 500m\",\n  \"sku\": \"MAT-042\",\n  \"category\": \"Matéria-Prima\",\n  \"stock\": 35,\n  \"minimumOrderQuantity\": 10,\n  \"price\": 18.90\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/add",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "add"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "3. Atualizar Item / Reposição (PUT)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Essence Mascara Lash Princess\",\n  \"sku\": \"RCH45Q1A\",\n  \"category\": \"beauty\",\n  \"stock\": 50,\n  \"minimumOrderQuantity\": 24,\n  \"price\": 9.99\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "4. Excluir Item (DELETE)",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "5. Simular Falha de Comunicação (GET Erro)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://endpoint-inexistente.local/products?limit=20",
+          "protocol": "https",
+          "host": [
+            "endpoint-inexistente",
+            "local"
+          ],
+          "path": [
+            "products"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "20"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

@@ -1,1 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <!-- Interface da Tela 2 (Formulário de cadastro/edição com 6 campos). -->
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="br.com.estoque.controller.FormularioController"
+            fitToWidth="true" style="-fx-background-color: transparent;">
+
+    <VBox styleClass="painel-tela" spacing="18">
+        <VBox spacing="4">
+            <Label fx:id="tituloTela" text="Cadastrar Novo Item" styleClass="titulo-pagina"/>
+            <Label text="Preencha todos os campos obrigatórios abaixo. Os dados serão enviados via API REST."
+                   styleClass="subtitulo-pagina"/>
+        </VBox>
+
+        <VBox styleClass="cartao" spacing="16" maxWidth="720">
+            <VBox spacing="4">
+                <Label text="Nome do Material *" styleClass="rotulo-campo"/>
+                <TextField fx:id="campoNome" promptText="Ex: Fio de Algodão 500m"/>
+                <Label fx:id="erroNome" styleClass="mensagem-erro" visible="false" managed="false"/>
+            </VBox>
+
+            <HBox spacing="16">
+                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                    <Label text="Código SKU *" styleClass="rotulo-campo"/>
+                    <TextField fx:id="campoSku" promptText="Ex: MAT-001"/>
+                    <Label fx:id="erroSku" styleClass="mensagem-erro" visible="false" managed="false"/>
+                </VBox>
+
+                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                    <Label text="Categoria *" styleClass="rotulo-campo"/>
+                    <ComboBox fx:id="campoCategoria" promptText="Selecione uma categoria" maxWidth="Infinity"/>
+                    <Label fx:id="erroCategoria" styleClass="mensagem-erro" visible="false" managed="false"/>
+                </VBox>
+            </HBox>
+
+            <HBox spacing="16">
+                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                    <Label text="Quantidade Atual *" styleClass="rotulo-campo"/>
+                    <TextField fx:id="campoQuantidade" promptText="Ex: 25"/>
+                    <Label fx:id="erroQuantidade" styleClass="mensagem-erro" visible="false" managed="false"/>
+                </VBox>
+
+                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                    <Label text="Estoque Mínimo *" styleClass="rotulo-campo"/>
+                    <TextField fx:id="campoEstoqueMinimo" promptText="Ex: 10"/>
+                    <Label fx:id="erroEstoqueMinimo" styleClass="mensagem-erro" visible="false" managed="false"/>
+                </VBox>
+
+                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                    <Label text="Preço Unitário (R$) *" styleClass="rotulo-campo"/>
+                    <TextField fx:id="campoPreco" promptText="Ex: 19,90"/>
+                    <Label fx:id="erroPreco" styleClass="mensagem-erro" visible="false" managed="false"/>
+                </VBox>
+            </HBox>
+
+            <HBox spacing="12" alignment="CENTER_RIGHT" style="-fx-padding: 12 0 0 0;">
+                <Button text="Cancelar" onAction="#cancelar" styleClass="botao-secundario"/>
+                <Button text="💾 Salvar Item" onAction="#salvar" styleClass="botao-primario"/>
+            </HBox>
+        </VBox>
+    </VBox>
+</ScrollPane>

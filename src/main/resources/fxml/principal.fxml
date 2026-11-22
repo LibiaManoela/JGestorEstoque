@@ -1,1 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <!-- Estrutura base fixa (menu lateral de navegação + barra superior de status/rede + área central).-->
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="br.com.estoque.controller.PrincipalController">
+
+    <left>
+        <VBox styleClass="menu-lateral" spacing="8">
+            <Label text="Gestor Estoque" styleClass="marca-titulo"/>
+            <Label text="Controle de Insumos" styleClass="marca-subtitulo"/>
+
+            <Button text="📦  Catálogo Geral" onAction="#abrirCatalogo" styleClass="botao-menu"/>
+            <Button text="➕  Novo Item" onAction="#abrirNovoItem" styleClass="botao-menu"/>
+            <Button text="⚠️  Reposição Crítica" onAction="#abrirReposicao" styleClass="botao-menu"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Button text="🔄  Sincronizar API" onAction="#carregarDadosIniciais" styleClass="botao-menu"/>
+            <ToggleButton fx:id="botaoSimularFalha"
+                          text="Simular Falha de Rede"
+                          onAction="#alternarSimulacaoFalha"
+                          styleClass="botao-simulacao"/>
+        </VBox>
+    </left>
+
+    <top>
+        <HBox styleClass="barra-topo" alignment="CENTER_LEFT" spacing="14">
+            <ProgressIndicator fx:id="indicadorCarregamento"
+                               prefWidth="24" prefHeight="24"
+                               visible="false" managed="false"/>
+
+            <HBox fx:id="bannerStatus" alignment="CENTER_LEFT" spacing="12" HBox.hgrow="ALWAYS"
+                  visible="false" managed="false">
+                <Label fx:id="textoStatus" text="" HBox.hgrow="ALWAYS"/>
+                <Button fx:id="botaoTentarNovamente"
+                        text="Tentar Novamente"
+                        onAction="#executarTentativaNovamente"
+                        styleClass="botao-secundario"/>
+            </HBox>
+        </HBox>
+    </top>
+
+    <center>
+        <StackPane fx:id="areaConteudo"/>
+    </center>
+
+</BorderPane>

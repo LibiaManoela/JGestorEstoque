@@ -14,7 +14,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 //Tela 1: Controla a tabela geral, barra de busca, filtro por categoria e exclusão com confirmação.
-public class CatalogoController {
+public class CatalogoController implements PrincipalController.ControladorFilho {
 
     @FXML private TextField campoBusca;
     @FXML private ComboBox<String> filtroCategoria;
